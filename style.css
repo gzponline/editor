@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+[contenteditable="true"]:empty::before {
+    content: attr(aria-placeholder);
+}
+#editor {
+    width: 800px;
+    margin: 100px auto;
+    padding: 20px;
+    /* overflow: hidden; */
+    border: 4px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 2px;
+    outline: none;
+}
+#editor div {
+    margin: 5px 5px;
+}
+#chooserColor {
+    display: none;
+    width: 210px;
+    border: 1px solid #dfe1e5;
+    margin: 1px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #aaa;
+    position: absolute;
+    background: #fff;
+    padding: 10px;
+}
+
+#chooserColor #creatU {
+    list-style-type: none;
+    padding: 0px 5px;
+}
+#chooserColor #creatL {
+    cursor: pointer;
+    display: inline-block;
+    margin: 2px;
+    width: 30px;
+    height: 30px;
+}
+#chooserColor #creatS {
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+    display: block;
+    float: right;
+}
+#urlInputLink {
+    float: right;
+}
+#urlInputTitle {
+    float: right;
+}
+
+.items {
+    position: relative;
+    background-color: #f6f9fa;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.item {
+    transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box;
+    user-select: none;
+}
+.item p {
+    width: 100%;
+    display: block;
+}
+
+.item:hover {
+    background-color: #eaf0f1af;
+}
+
+.select {
+    position: absolute;
+    background-color: #00a1d6;
+    color: #fff;
+}
+
+.hold {
+    border: 1px dashed #ccc;
+    box-sizing: border-box;
+}
+
+#button2 {
+    height: 50px;
+}
