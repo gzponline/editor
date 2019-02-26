@@ -23,6 +23,7 @@ a {
 }
 
 #chooserColor {
+    display: none;
     opacity: 1;
     border: 1px solid #dfe1e5;
     margin: 1px;
