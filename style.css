@@ -23,6 +23,8 @@ a {
 }
 
 #chooserColor {
+    z-index: 19999;
+
     display: none;
     opacity: 1;
     border: 1px solid #dfe1e5;
@@ -64,7 +66,8 @@ a {
     line-height: 2;
 }
 #linkInput {
-    width: 70%;
+    width: 80%;
+    margin-left: 15px;
 }
 #urlInputLink {
     float: right;
@@ -86,8 +89,7 @@ a {
     transition: background-color 0.3s, color 0.3s;
     box-sizing: border-box;
     user-select: none;
-    margin: 0px 15px 0px 25px;
-    padding-bottom: 10px;
+    padding: 0 15px 10px 25px;
 }
 .item:hover:before {
     content: "";
@@ -123,4 +125,16 @@ a {
 
 #button2 {
     height: 50px;
+}
+.urlChangeBox {
+    display: none;
+}
+#cover {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100000px; /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+    height: 100000px;
+    display: none;
+    z-index: 999;
 }

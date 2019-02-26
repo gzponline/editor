@@ -70,7 +70,8 @@ const state = {
     link: () => {
         return setWord.getSelectedLink()
     },
-	showToolsbar: false,
+    showToolsbar: false,
+    urlChangeBox: 0,
 };
 const defaultActions = {
     bold: {
@@ -111,7 +112,14 @@ const defaultActions = {
         title: 'Link',
         state: ()=> setWord.getSelectedLink(),
         result: () => {
-
+            console.log(state.urlChangeBox)
+            if(state.urlChangeBox % 2 == 0) {
+                document.querySelector(".urlChangeBox").style.display = "block";
+                state.urlChangeBox =1
+            } else {
+                document.querySelector(".urlChangeBox").style.display = "none";
+                state.urlChangeBox =0
+            }
         }
       },
 }
@@ -175,16 +183,21 @@ const setWord = {
     },
 	showDiv(event){  
         let chooserColorDiv = document.getElementById("chooserColor");
+        let hoverdiv = document.getElementById("cover")
+
 		let Position = basic.getPPosition(event);
         chooserColorDiv.style.display = 'block'
+        hoverdiv.style.display = 'block';
 		chooserColorDiv.style.top = Position.y-0+10+"px";
         chooserColorDiv.style.left = (Position.x-5)+"px";
+        basic.addEvent(hoverdiv, "click",(e)=>{
+            setWord.hideDiv()
+            basic.stopPropagation(e)
+        })
 	},
-	hideDiv(){   
-		if("" != document.getElementById("chooserColor")){
-			document.getElementById("chooserColor").style.display = "none"
-        }
-        state.showToolsbar = false
+	hideDiv(){  
+		document.getElementById("chooserColor").style.display = "none"
+        document.getElementById("cover").style.display = "none";
 	},
 	liclick(event){
 			if(event.target.tagName.toLowerCase() == "li"){
@@ -213,7 +226,7 @@ const setWord = {
         basic.exec("createLink", link);
     },
     unlink(){
-        
+
     },
     getSelectedLink() {
         // 获取选区内是否包含链接 或者包括链接标题的部分文字
