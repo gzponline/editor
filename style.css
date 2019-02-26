@@ -2,25 +2,28 @@
     margin: 0;
     padding: 0;
 }
+a {
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
+    word-wrap: break-word;
+}
 [contenteditable="true"]:empty::before {
     content: attr(aria-placeholder);
 }
 #editor {
     width: 800px;
     margin: 100px auto;
-    padding: 20px;
+    padding: 20px 20px 20px 0;
     /* overflow: hidden; */
     border: 4px solid #dfe1e5;
     box-shadow: none;
     border-radius: 2px;
     outline: none;
 }
-#editor div {
-    margin: 5px 5px;
-}
+
 #chooserColor {
-    display: none;
-    width: 210px;
+    opacity: 1;
     border: 1px solid #dfe1e5;
     margin: 1px;
     border-radius: 5px;
@@ -28,6 +31,14 @@
     position: absolute;
     background: #fff;
     padding: 10px;
+    align-items: stretch;
+    background: white;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.2;
+    border-radius: 3px;
+    box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
+        rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
 }
 
 #chooserColor #creatU {
@@ -41,39 +52,56 @@
     width: 30px;
     height: 30px;
 }
-#chooserColor #creatS {
-    position: relative;
-    top: 1px;
+#chooserColor .action {
     cursor: pointer;
-    display: block;
-    float: right;
+    display: inline-block;
+    margin: 2px;
+    width: 30px;
+    height: 30px;
+    float: left;
+    text-align: center;
+    line-height: 2;
+}
+#linkInput {
+    width: 70%;
 }
 #urlInputLink {
     float: right;
 }
 #urlInputTitle {
     float: right;
+    border-radius: 1px;
 }
 
 .items {
     position: relative;
     background-color: #f6f9fa;
-    overflow: hidden;
     border-radius: 4px;
+    margin: 0 0 0 20px;
+    padding-top: 5px;
 }
 
 .item {
     transition: background-color 0.3s, color 0.3s;
     box-sizing: border-box;
     user-select: none;
+    margin: 0px 15px 0px 25px;
+    padding-bottom: 10px;
 }
+.item:hover:before {
+    content: "";
+    display: block;
+    background: url(./moveButton.svg) no-repeat;
+    width: 27px;
+    height: 27px;
+    background-size: cover;
+    position: absolute;
+    left: 0px;
+}
+
 .item p {
     width: 100%;
     display: block;
-}
-
-.item:hover {
-    background-color: #eaf0f1af;
 }
 
 .select {
@@ -85,6 +113,11 @@
 .hold {
     border: 1px dashed #ccc;
     box-sizing: border-box;
+}
+.yes {
+    border: 1px dashed #ccc;
+    box-sizing: border-box;
+    background-color: antiquewhite;
 }
 
 #button2 {
